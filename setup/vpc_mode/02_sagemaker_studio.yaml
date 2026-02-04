@@ -201,6 +201,17 @@ Resources:
               Action:
                 - ssm:GetParameter
               Resource: "arn:aws:ssm:*::parameter/aws/service/sagemaker-distribution/ecr-account-id"
+        - PolicyName: ecr-cross-account-pull
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+            - Effect: Allow
+              Action:
+                - ecr:BatchCheckLayerAvailability
+                - ecr:BatchGetImage
+                - ecr:GetDownloadUrlForLayer
+                - ecr:GetAuthorizationToken
+              Resource: "*"
   LambdaInvokeSageMakerEndpointRole:
     Type: AWS::IAM::Role
     Properties:
