@@ -36,7 +36,7 @@ The [Code Editor](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.ht
 2. Run the following command in the terminal:
 
 	```
-	git clone https://github.com/aws-samples/amazon-sagemaker-build-train-deploy.git
+	git clone https://github.com/lukewma-aws/amazon-sagemaker-build-train-deploy.git
 	```
     
 	<img src="../images/module_02/code_editor_clone_repo.png" alt="Clone repo in Code Editor" width="800px" />

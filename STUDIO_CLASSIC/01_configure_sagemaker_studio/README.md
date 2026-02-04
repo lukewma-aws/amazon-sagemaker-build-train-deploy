@@ -40,7 +40,7 @@ In this module, you will open Amazon SageMaker Studio and clone this GitHub repo
 2. Execute the following command in the terminal:
 
 	```
-		git clone https://github.com/aws-samples/amazon-sagemaker-build-train-deploy.git
+		git clone https://github.com/lukewma-aws/amazon-sagemaker-build-train-deploy.git
 	```
 
     The repository will be cloned to your user home and will appear in the file browser panel as shown below:

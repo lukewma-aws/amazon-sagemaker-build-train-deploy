@@ -38,7 +38,7 @@ The JupyterLab application is a web-based interactive development environment (I
 2. Run the following command in the terminal:
 
 	```
-	git clone https://github.com/aws-samples/amazon-sagemaker-build-train-deploy.git
+	git clone https://github.com/lukewma-aws/amazon-sagemaker-build-train-deploy.git
 	```
 
     The cloned repository folder will appear in the file browser panel:
