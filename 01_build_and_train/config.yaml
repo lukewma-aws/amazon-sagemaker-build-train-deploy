@@ -1,0 +1,11 @@
+SchemaVersion: '1.0'
+SageMaker:
+  PythonSDK:
+    Modules:
+      RemoteFunction:
+        ImageUri: public.ecr.aws/sagemaker/sagemaker-distribution:3.6-cpu
+        InstanceType: ml.m5.large
+        Dependencies: ./requirements.txt
+        IncludeLocalWorkDir: true
+        PreExecutionCommands:
+          - "pip install --upgrade scipy scikit-learn"
