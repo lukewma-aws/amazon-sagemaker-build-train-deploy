@@ -18,7 +18,6 @@ from sagemaker.s3_utils import s3_path_join
 from sagemaker.utils import unique_name_from_base
 from sagemaker.image_uris import retrieve as get_image_uri
 
-from sagemaker.serve import ModelServer
 from sagemaker.serve import InferenceSpec
 from sagemaker.serve.builder.model_builder import ModelBuilder
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
@@ -71,7 +70,6 @@ def build_sklearn_sagemaker_model(role, featurizer):
         dependencies={"requirements": "requirements_inference.txt"},
         image_uri=get_image_uri(framework="sklearn", region=current_region, version="1.2-1"),
         schema_builder=schema_builder,
-        model_server=ModelServer.TORCHSERVE,
         inference_spec=SklearnModelSpec(),
         role_arn=role)
     
