@@ -113,7 +113,7 @@ def build_sklearn_sagemaker_model(role, featurizer, project_prefix):
     model_builder = ModelBuilder(
         model_path="sklearn_model/",
         name="sklearn_featurizer",
-        dependencies={"requirements": "requirements_inference.txt"},
+        dependencies={"requirements": "requirements_inference.txt", "auto": False},
         image_uri=get_image_uri(framework="sklearn", region=current_region, version="1.2-1"),
         schema_builder=schema_builder,
         inference_spec=SklearnModelSpec(),
@@ -153,7 +153,7 @@ def build_xgboost_sagemaker_model(role, booster, project_prefix):
     model_builder = ModelBuilder(
         model=booster,
         model_path="xgboost_model/",
-        dependencies={"requirements": "requirements_inference.txt"},
+        dependencies={"requirements": "requirements_inference.txt", "auto": False},
         schema_builder=schema_builder,
         role_arn=role,
         s3_model_data_url=bucket_prefix,

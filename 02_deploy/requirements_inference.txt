@@ -1,4 +1,2 @@
-# Inference container dependencies
-xgboost
-scikit-learn
+# Inference container dependencies - minimal set only
 protobuf<4.0
