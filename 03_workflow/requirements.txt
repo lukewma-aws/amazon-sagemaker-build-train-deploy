@@ -1,2 +1,5 @@
-# No additional packages needed - SageMaker Distribution 3.6.2 includes all required dependencies
-# Adding version-pinned packages can cause libstdc++ incompatibilities
+sagemaker==2.219.0
+scikit-learn==1.3.2
+s3fs
+mlflow==2.17.0
+sagemaker-mlflow
