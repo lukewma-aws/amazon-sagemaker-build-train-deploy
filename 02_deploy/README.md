@@ -56,25 +56,25 @@ The [Code Editor](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.ht
 
 ## Deploy the model to an inference endpoint
 
-1. In the Explorer window, browse to the folder **02_deploy** and open the Python file **deploy.py**.
+1. Open the Terminal window again. If you have closed it or cannot locate it, open the Explorer menu and choose **Terminal >> New Terminal**.
+
+2. In the Terminal window, run the following command to install the dependencies required by the deployment script, in conda python 3.10 environment.
+
+	```
+	cd ~/amazon-sagemaker-build-train-deploy/02_deploy && conda create -n py310 python=3.10 -y && conda activate py310 && pip install -r requirements.txt
+	```
+	<img src="../images/module_02/install_dependencies.png" alt="Install dependencies" width="700px" />
+
+
+3. In the Explorer window, browse to the folder **02_deploy** and open the Python file **deploy.py**.
 
 	<img src="../images/module_02/code_editor_open_deploy_script.png" alt="Open the deployment script" width="800px" />
 
-2. Make yourself familiar with the deployment steps. The deployment script performs the following steps:
+4. Make yourself familiar with the deployment steps. The deployment script performs the following steps:
 	- Load the featurizer (SKLearn) and logistic regression (XGBoost) models from the S3 bucket. The jobs you ran in Module 1 has stored the models in the S3 bucket.
 	- Prepare the model for deployment using the [ModelBuilder](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-modelbuilder-creation.html) in SageMaker Python SDK. The ModelBuilder reduces complexity of setup and deployment of models, which involves choosing a model image, setting up the endpoint configuration, coding your serialization and deserialization functions to transfer data to and from server and client, identifying model dependencies, and uploading them to Amazon S3.
 	- Build a [PipelineModel](https://sagemaker.readthedocs.io/en/stable/api/inference/pipeline.html), which is a pipeline of SageMaker Model instances (in this case, the featurizer and logistic regression models).
 	- Deploy the pipeline model on a real-time inference endpoint. Learn more about [Deploying models for inference](https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html). 
-
-
-3. Open the Terminal window again. If you have closed it or cannot locate it, open the Explorer menu and choose **Terminal >> New Terminal**.
-
-4. In the Terminal window, run the following command to install the dependencies required by the deployment script.
-
-	```
-	cd ~/amazon-sagemaker-build-train-deploy/02_deploy && pip install -r requirements.txt
-	```
-	<img src="../images/module_02/install_dependencies.png" alt="Install dependencies" width="700px" />
 
 5. Once all dependencies are installed and the previous command has finished executing, choose the **Run Python File** icon as displayed below:
 

@@ -115,7 +115,7 @@ def build_sklearn_sagemaker_model(role, featurizer, project_prefix):
         model_path="sklearn_model/",
         name="sklearn_featurizer",
         dependencies={"requirements": "requirements_inference.txt"},
-        image_uri=get_image_uri(framework="sklearn", region=current_region, version="1.2-1"),
+        image_uri=get_image_uri(framework="sklearn", region=current_region, version="1.4-2"),
         schema_builder=schema_builder,
         model_server=ModelServer.TORCHSERVE,
         inference_spec=SklearnModelSpec(),
@@ -159,7 +159,7 @@ def build_xgboost_sagemaker_model(role, booster, project_prefix):
         schema_builder=schema_builder,
         role_arn=role,
         s3_model_data_url=bucket_prefix,
-        image_uri=get_image_uri(framework="xgboost", region=current_region, version="1.7-1")
+        image_uri=get_image_uri(framework="xgboost", region=current_region, version="3.0-5")
         )
 
     return model_builder.build()
@@ -182,7 +182,9 @@ def deploy_model(pipeline_model, project_prefix, instance_type, wait):
     pipeline_model.deploy(initial_instance_count=1, 
                           instance_type=instance_type, 
                           endpoint_name=endpoint_name,
-                          wait=wait)
+                          wait=wait,
+                          container_startup_health_check_timeout=600,
+                          volume_size=30)
 
 if __name__ == "__main__":
     role=get_execution_role()
